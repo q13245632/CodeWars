@@ -4,38 +4,6 @@
 
 
 def pick_peaks(arr):
-    res = {}
-    pos = []
-    peaks = []
-    lst = []
-    pos_item = 0
-    cycle = True
-    for i in xrange(len(arr)):
-        if lst:
-            last = lst[-1]
-            if arr[i] > last:
-                pos_item = i
-                cycle = True
-                lst.append(arr[i])
-            elif arr[i] == last:
-                cycle = True
-                continue
-            elif cycle:
-                cycle = False
-                if i-1 == 0 or i - 1 == len(arr)-1:
-                    continue
-                pos.append(pos_item)
-                peaks.append(last)
-            else:
-                lst.append(arr[i])
-                pos_item = i
-        else:
-            lst.append(arr[i])
-    res["pos"] = pos
-    res["peaks"] = peaks
-    return res
-
-def pick_peaks(arr):
     pos = []
     peaks = []
     for i in xrange(1, len(arr)-1):
